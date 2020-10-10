@@ -1,0 +1,45 @@
+.header {
+  height: 56px;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $main;
+}
+
+.logo {
+  display: block;
+  &__text {
+    font-weight: bold;
+    font-size: 2rem;
+    color: #97b5cf;
+  }
+}
+
+.auth-area {
+  display: flex;
+  align-items: center;
+}
+
+.auth-btn {
+  padding: 4px 16px;
+  color: #113049;
+  font-weight: bold;
+  font-size: .9rem;
+  background: #97b5cf;
+  border-radius: 4px;
+
+  &--text {
+    background: transparent;
+    color: #97b5cf;
+  }
+
+  & + & {
+    margin-left: 16px;
+  }
+
+  &:hover {
+    color: inherit;
+    text-decoration: underline;
+  }
+}

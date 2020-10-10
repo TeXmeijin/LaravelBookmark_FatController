@@ -1,0 +1,51 @@
+version: "3.7"
+volumes:
+  db-store:
+  php-fpm-socket:
+services:
+  https-portal:
+    container_name: bookmark-https
+    image: steveltn/https-portal:1
+    ports:
+      - '80:80'
+      - '443:443'
+    environment:
+      STAGE: local
+      DOMAINS: "localhost -> http://web"
+    volumes:
+      - ./docker/https-portal/cert:/var/lib/https-portal
+    depends_on:
+      - web
+
+  app:
+    container_name: bookmark-app
+    build: ./docker/php
+    volumes:
+      - php-fpm-socket:/var/run/php-fpm
+      - ./src:/opt/laravel-bookmark
+
+  web:
+    container_name: bookmark-web
+    build: ./docker/nginx
+    volumes:
+      - php-fpm-socket:/var/run/php-fpm
+      - ./src:/opt/laravel-bookmark
+
+  db:
+    container_name: bookmark-db
+    build: ./docker/mysql
+    volumes:
+      - db-store:/var/lib/mysql
+      - ./docker/logs:/var/log/mysql
+    ports:
+      - 3306:3306
+
+  node:
+    container_name: bookmark-node
+    image: node:14.2-buster
+    working_dir: "/opt/laravel-bookmark"
+    command: /bin/bash -c 'npm i && npm rebuild node-sass && npm run watch'
+    volumes:
+      - ./src:/opt/laravel-bookmark
+    environment:
+      TZ: Asia/Tokyo

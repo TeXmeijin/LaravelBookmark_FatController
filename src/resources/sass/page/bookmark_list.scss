@@ -1,0 +1,53 @@
+@import '../variables';
+@import "../components/bookmark_card";
+
+.main {
+  max-width: 1200px;
+  margin: 24px auto;
+  background: #f5f5f5;
+  padding: 32px;
+}
+
+.heading-area {
+  padding: 32px 0;
+}
+
+.heading-main {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.bookmark-area {
+  display: flex;
+  margin: 0 auto;
+
+  .center {
+    max-width: $main-width;
+  }
+
+  .right-bar {
+    width: calc(1200px - #{$main-width});
+    margin-left: 24px;
+
+    h2 {
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.category-meta {
+  color: $gray;
+}
+
+.section {
+  & + & {
+    margin-top: 40px;
+  }
+}
+
+.paginate {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}

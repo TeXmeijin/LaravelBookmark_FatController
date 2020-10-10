@@ -1,0 +1,9 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/page/bookmark_create.css": "/css/page/bookmark_create.css",
+    "/css/page/bookmark_list.css": "/css/page/bookmark_list.css",
+    "/css/page/profile.css": "/css/page/profile.css",
+    "/css/page/top.css": "/css/page/top.css",
+    "/css/components/bookmark_card.css": "/css/components/bookmark_card.css"
+}

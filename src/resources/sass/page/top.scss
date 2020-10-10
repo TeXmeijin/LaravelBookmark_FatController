@@ -1,0 +1,74 @@
+@import '../variables';
+
+@include mq {
+  .main {
+    flex: 1;
+    padding: 0;
+  }
+
+  .catch-area {
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    background: radial-gradient(lighten($main, 70%) 3px, transparent 4px),
+    radial-gradient(lighten($main, 70%) 3px, transparent 4px),
+    linear-gradient(#fff 4px, transparent 0),
+    linear-gradient(45deg, transparent 74px, transparent 75px, #ccc 75px, #ccc 76px, transparent 77px, transparent 109px),
+    linear-gradient(-45deg, transparent 75px, transparent 76px, #ccc 76px, #ccc 77px, transparent 78px, transparent 109px),
+    #fff;
+    background-size: 109px 109px, 109px 109px, 100% 6px, 109px 109px, 109px 109px;
+    background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+  }
+
+  .message {
+    padding: 0 0 40px;
+    font-weight: bold;
+    font-size: 2.4rem;
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  .categories {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+
+  .navigation {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navigation-button {
+    padding: 8px 24px;
+    font-weight: bold;
+    color: $white;
+    border-radius: 8px;
+    background: $main;
+
+    & + & {
+      margin-left: 16px;
+    }
+
+    &:hover {
+      color: $white;
+      text-decoration: underline;
+    }
+
+    &.outline {
+      background: $white;
+      color: $main;
+      border: 1px solid $main;
+
+      &:hover {
+        color: $main;
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+@import '../variables';
+
+.bookmark-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+  border: 1px solid #eee;
+  background: $white;
+  max-width: $main-width;
+
+  & + & {
+    margin-top: 24px;
+  }
+}
+
+.bookmark-image {
+  max-width: 100%;
+  max-height: 300px;
+
+  &__img {
+    width: $main-width;
+    max-height: 300px;
+    object-fit: cover;
+  }
+}
+
+.bookmark-body-area {
+  padding: 0 16px;
+}
+
+.bookmark-tag {
+  margin-top: 8px;
+
+  &__item {
+    border-radius: 4px;
+    background: $gray;
+    color: $white;
+    font-weight: bold;
+    padding: 4px 12px;
+    font-size: .9rem;
+  }
+}
+
+.bookmark-user {
+  margin-top: 8px;
+  font-size: .8rem;
+  color: $gray;
+}
+
+.bookmark-comment {
+  margin-top: 4px;
+  background: #f1f1cc;
+  font-size: .8rem;
+  color: $gray;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.bookmark-title {
+  margin-top: 4px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.bookmark-desc {
+  margin-top: 4px;
+  margin-bottom: 16px;
+  color: $gray;
+  font-size: .8rem;
+}
+
+.bookmark-action-area {
+  width: 100%;
+  padding: 0 16px 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  &__item {
+    & + & {
+      margin-left: 24px;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+### https://raw.github.com/github/gitignore/7293c14345c205c679722364a01b88d331e862ff/Laravel.gitignore
+
+/vendor/
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Laravel 4 specific
+bootstrap/compiled.php
+storage/**
+
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
+public/js/**
+public/css/**
+
+storage/*.key
+.env
+Homestead.yaml
+Homestead.json
+/.vagrant
+.phpunit.result.cache
+
+

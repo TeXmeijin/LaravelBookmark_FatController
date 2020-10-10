@@ -1,0 +1,19 @@
+@import '../variables';
+@import '../components/form';
+
+.main {
+  width: 1000px;
+  max-width: 1200px;
+  margin: 24px auto;
+  background: #f5f5f5;
+  padding: 32px;
+}
+
+.heading-area {
+  padding: 32px 0;
+}
+
+.heading-main {
+  font-weight: bold;
+  font-size: 1.6rem;
+}

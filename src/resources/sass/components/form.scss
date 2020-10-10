@@ -1,0 +1,66 @@
+@import '../variables';
+
+.form-item {
+  padding: 16px 0;
+}
+
+input[type='text'],
+textarea {
+  padding: 8px;
+  border: 1px solid $gray-cc;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+}
+
+.submit {
+  display: block;
+  color: $white;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: $main;
+  border: 0;
+  width: 100%;
+  text-align: center;
+
+  &:hover {
+    background: lighten($main, 15%);
+  }
+}
+
+select {
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+.select-container {
+  position: relative;
+  border: 2px solid $main;
+  border-radius: 8px;
+  padding: 8px 16px;
+  background: $white;
+  display: flex;
+  justify-content: flex-end;
+
+  &::before {
+    position: absolute;
+    top: 1.2rem;
+    right: 0.8em;
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid $main;
+    pointer-events: none;
+  }
+}
