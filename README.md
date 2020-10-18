@@ -7,8 +7,8 @@
 - Git,Docker,docker-compose の導入が前提となっています。
 
 ## 初回セットアップ
-1. `git clone git@github.com:TeXmeijin/LaravelBookmark.git`
-1. `cd LaravelBookmark`
+1. `git clone https://github.com/TeXmeijin/LaravelBookmark_FatController.git`
+1. `cd LaravelBookmark_FatController`
 1. `cp src/.env.sample src/.env`
 1. `docker-compose up -d`
 1. `docker-compose exec app composer install`
