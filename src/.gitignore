@@ -7,7 +7,6 @@ yarn-error.log
 
 # Laravel 4 specific
 bootstrap/compiled.php
-storage/**
 
 # Laravel 5 & Lumen specific
 public/storage
@@ -21,5 +20,5 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
-
+mix-manifest.json
 
