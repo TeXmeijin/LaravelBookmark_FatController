@@ -39,7 +39,7 @@ $factory->define(Bookmark::class, function (Faker $faker) {
         'url' => $faker->url,
         'comment' => $faker->realText(100),
         'page_title' => '' . $faker->word,
-        'page_thumbnail_url' => $faker->imageUrl(),
+        'page_thumbnail_url' => $faker->imageUrl(400, 300),
         'page_description' => $faker->realText(200),
         'created_at' => now(),
         'updated_at' => now(),
