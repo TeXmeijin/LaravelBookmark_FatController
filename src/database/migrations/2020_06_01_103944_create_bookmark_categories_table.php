@@ -14,7 +14,7 @@ class CreateBookmarkCategoriesTable extends Migration
     public function up()
     {
         Schema::create('bookmark_categories', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('display_name', 100)->comment('カテゴリの表示名（日本語）');
             $table->string('slug', 100)->comment('カテゴリ一覧等でURLに表示するときの名前（英数字）');
             $table->timestamps();
