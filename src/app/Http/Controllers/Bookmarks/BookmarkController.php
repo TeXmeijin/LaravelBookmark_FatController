@@ -51,7 +51,7 @@ class BookmarkController extends Controller
 
         $bookmarks = Bookmark::query()->with(['category', 'user'])->latest('id')->paginate(10);
 
-        $top_categories = BookmarkCategory::query()->withCount('bookmarks')->orderBy('bookmarks_count', 'desc')->take(10)->get();
+        $top_categories = BookmarkCategory::query()->withCount('bookmarks')->orderBy('bookmarks_count', 'desc')->orderBy('id')->take(10)->get();
 
         // Descriptionの中に人気のカテゴリTOP5を含めるという要件
         SEOTools::setDescription("技術分野に特化したブックマーク一覧です。みんなが投稿した技術分野のブックマークが投稿順に並んでいます。{$top_categories->pluck('display_name')->slice(0, 5)->join('、')}など、気になる分野のブックマークに絞って調べることもできます");
@@ -95,7 +95,7 @@ class BookmarkController extends Controller
         $bookmarks = Bookmark::query()->with(['category', 'user'])->where('category_id', '=', $category_id)->latest('id')->paginate(10);
 
         // 自身のページのカテゴリを表示しても意味がないのでそれ以外のカテゴリで多い順に表示する
-        $top_categories = BookmarkCategory::query()->withCount('bookmarks')->orderBy('bookmarks_count', 'desc')->where('id', '<>', $category_id)->take(10)->get();
+        $top_categories = BookmarkCategory::query()->withCount('bookmarks')->orderBy('bookmarks_count', 'desc')->orderBy('id')->where('id', '<>', $category_id)->take(10)->get();
 
         $top_users = User::query()->withCount('bookmarks')->orderBy('bookmarks_count', 'desc')->take(10)->get();
 
@@ -203,7 +203,7 @@ class BookmarkController extends Controller
             abort(403);
         }
 
-        $master_categories = BookmarkCategory::query()->withCount('bookmarks')->orderBy('bookmarks_count', 'desc')->take(10)->get();
+        $master_categories = BookmarkCategory::query()->withCount('bookmarks')->orderBy('bookmarks_count', 'desc')->orderBy('id')->take(10)->get();
 
         return view('page.bookmark_edit.index', [
             'user' => Auth::user(),

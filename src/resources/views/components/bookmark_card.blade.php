@@ -7,7 +7,7 @@
 
 <div class="bookmark-card">
     <figure class="bookmark-image">
-        <img height="200" width="300" loading="lazy" src="{{ $bookmark->page_thumbnail_url }}" alt="{{ $bookmark->page_title }}"
+        <img src="{{ $bookmark->page_thumbnail_url }}" alt="{{ $bookmark->page_title }}"
              class="bookmark-image__img">
     </figure>
     <div class="bookmark-body-area">

@@ -14,7 +14,7 @@ class CreateBookmarksTable extends Migration
     public function up()
     {
         Schema::create('bookmarks', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->comment('投稿者のID');
             $table->unsignedBigInteger('category_id')->nullable()->comment('カテゴリのID');
             $table->string('url', 255)->comment('ブックマークしたURL');

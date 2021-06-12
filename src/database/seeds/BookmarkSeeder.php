@@ -69,6 +69,7 @@ class BookmarkSeeder extends Seeder
                 'user_id' => $user_id,
                 'category_id' => $category_id,
                 'page_title' => "{$tech_categories[$category_id - 1]}の記事タイトル",
+                'created_at' => now()->addDays($i)
             ]);
         }
     }
