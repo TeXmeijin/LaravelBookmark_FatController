@@ -32,6 +32,7 @@ services:
       - ./src:/opt/laravel-bookmark
 
   db:
+    platform: linux/x86_64
     container_name: bookmark-db
     build: ./docker/mysql
     volumes:
@@ -42,9 +43,9 @@ services:
 
   node:
     container_name: bookmark-node
-    image: node:14.2-buster
+    image: node:16.13-alpine3.12
     working_dir: "/opt/laravel-bookmark"
-    command: /bin/bash -c 'npm i && npm rebuild node-sass && npm run watch'
+    command: /bin/sh -c 'npm i && npm rebuild node-sass && npm run watch'
     volumes:
       - ./src:/opt/laravel-bookmark
     environment:
