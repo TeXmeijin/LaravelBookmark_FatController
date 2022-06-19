@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Bookmarks;
 
 use App\Bookmark\UseCase\ShowBookmarkListPageUseCase;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateBookmarkRequest;
 use App\Models\Bookmark;
 use App\Models\BookmarkCategory;
 use App\Models\User;
@@ -122,18 +123,14 @@ class BookmarkController extends Controller
      * @param Request $request
      * @return Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function create(Request $request)
+    public function create(CreateBookmarkRequest $request)
     {
         if (Auth::guest()) {
             // @note ここの処理はユーザープロフィールでも使われている
             return redirect('/login');
         }
 
-        Validator::make($request->all(), [
-            'url' => 'required|string|url',
-            'comment' => 'required|string|min:10|max:1000',
-            'category' => 'required|integer|exists:bookmark_categories,id',
-        ])->validate();
+        /* !! ここからバリデーションの処理が消えている !! */
 
         // 下記のサービスでも同様のことが実現できる
         // @see https://www.linkpreview.net/
