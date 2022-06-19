@@ -125,13 +125,6 @@ class BookmarkController extends Controller
      */
     public function create(CreateBookmarkRequest $request)
     {
-        if (Auth::guest()) {
-            // @note ここの処理はユーザープロフィールでも使われている
-            return redirect('/login');
-        }
-
-        /* !! ここからバリデーションの処理が消えている !! */
-
         // 下記のサービスでも同様のことが実現できる
         // @see https://www.linkpreview.net/
         $previewClient = new Client($request->url);
