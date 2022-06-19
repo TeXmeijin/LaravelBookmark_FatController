@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers\Bookmarks;
 
-
+use App\Bookmark\UseCase\ShowBookmarkListPageUseCase;
 use App\Http\Controllers\Controller;
 use App\Models\Bookmark;
 use App\Models\BookmarkCategory;
@@ -41,29 +41,11 @@ class BookmarkController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function list(Request $request)
+    public function list(Request $request, ShowBookmarkListPageUseCase $useCase)
     {
-        /**
-         * SEOに必要なtitleタグなどをファサードから設定できるライブラリ
-         * @see https://github.com/artesaos/seotools
-         */
-        SEOTools::setTitle('ブックマーク一覧');
-
-        $bookmarks = Bookmark::query()->with(['category', 'user'])->latest('id')->paginate(10);
-
-        $top_categories = BookmarkCategory::query()->withCount('bookmarks')->orderBy('bookmarks_count', 'desc')->orderBy('id')->take(10)->get();
-
-        // Descriptionの中に人気のカテゴリTOP5を含めるという要件
-        SEOTools::setDescription("技術分野に特化したブックマーク一覧です。みんなが投稿した技術分野のブックマークが投稿順に並んでいます。{$top_categories->pluck('display_name')->slice(0, 5)->join('、')}など、気になる分野のブックマークに絞って調べることもできます");
-
-        $top_users = User::query()->withCount('bookmarks')->orderBy('bookmarks_count', 'desc')->take(10)->get();
-
         return view('page.bookmark_list.index', [
             'h1' => 'ブックマーク一覧',
-            'bookmarks' => $bookmarks,
-            'top_categories' => $top_categories,
-            'top_users' => $top_users
-        ]);
+        ] + $useCase->handle());
     }
 
     /**
